@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Points</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="js/lib/jquery.min.js"></script>
+        <script src="js/dashboard.js"></script>
+    </head>
+    <body>
+        <h1>{{name}}</h1>
+
+
+        {{#children}}
+        <div class="child">
+            <div><h2 class="firstName">{{firstName}}<h2></div>
+            <div>Points : <span class="points">{{points}}</span></div>
+            <input type="button" value="Édition" class="btnEdit">
+            <div class="formEdit">
+                <div class="errorDisplay">Problème de communication.</div>
+                <input type="text" class="inputTxtPoints" maxlength="3">
+                <input type="button" class="btnSave" value="Sauvegarder">
+            </div>
+        </div>
+        {{/children}}
+        
+        <div id="award">
+            <h2>Récompenses</h2>
+            <ul>
+                <li>Visite au centre des sciences - 25 Points</li>
+                <li>Partie de badminton - 25 Points</li>
+                <li>Clip and climb - 25 Points</li>
+            </ul>
+        </div>
+
+    </body>
+</html>

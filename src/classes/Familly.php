@@ -3,9 +3,14 @@
 class Familly {
     private $name;
     private $children;
-    public function __construct($name) {
+    private $password;
+    private $parentMode;
+    
+    public function __construct($name, $password) {
         $this->name = $name;
         $this->children = array();
+        $this->password = $password;
+        $this->parentMode = false;
     }
     
     public function getName() {
@@ -27,6 +32,26 @@ class Familly {
         return $this->children[$index];
     }
     
+    public function isParentModeActive() {
+        return $this->parentMode;
+    }
+    
+    public function setParentMode($parentMode) {
+        $this->parentMode = $parentMode;
+    }
+
+    public function validatePassword($password) {
+        if ($this->password == "") {
+            return false;
+        }
+        if ($this->password == $password) {
+            $this->parentMode = true;
+            return true;
+        }
+        $this->parentMode = false;
+        return false;
+    }
+    
     public static function loadFromJson($path) {
         //$cheminFichier = $this->cheminJson . DIRECTORY_SEPARATOR . 'famille-' . $idFamille . '.json';
 
@@ -39,7 +64,7 @@ class Familly {
 
         $json = json_decode($str);
         
-        $familly = new Familly($json->name);
+        $familly = new Familly($json->name, $json->password);
         if (isset($json->children)) {
             $max = count($json->children);
             for ($i = 0; $i < $max; $i++) {
@@ -53,6 +78,7 @@ class Familly {
     public function toStdClass() {
         $famillyStdObj = new StdClass();
         $famillyStdObj->name = $this->name;
+        $famillyStdObj->password = $this->password;
 
         $famillyStdObj->children =  array();
         $max = count($this->children);
@@ -65,6 +91,7 @@ class Familly {
     public function toJson() {
         $famillyStdObj = new StdClass();
         $famillyStdObj->name = $this->name;
+        $famillyStdObj->password = $this->password;
 
         $famillyStdObj->children =  array();
         $max = count($this->children);

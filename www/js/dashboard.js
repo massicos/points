@@ -1,6 +1,8 @@
 $(document).ready(function () {
     $(".formEdit").hide();
     $(".errorDisplay").hide();
+    $("#parentModeActive").hide();
+    $(".btnEdit").hide();
 
     $(".btnEdit").click(function () {
         child = $(this).closest(".child");
@@ -21,8 +23,7 @@ $(document).ready(function () {
             $(child).find(".btnEdit").show();
         }
     });
-
-
+    
     function ajaxAddPoints(url, points, firstName, pointsDisplay, errorDisplay) {
         // Ajax
         var succesAjax = false;

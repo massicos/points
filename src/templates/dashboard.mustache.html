@@ -4,11 +4,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/base/jquery.ui.all.css">        
         <script src="js/lib/jquery.min.js"></script>
+        <script src="js/lib/jquery-ui.custom.min.js"></script>
         <script src="js/dashboard.js"></script>
+        <script src="js/dialogParentMode.js"></script>
     </head>
     <body>
-        <h1>{{name}}</h1>
+        <h1>{{name}} <button id="btnOpenDialogParentMode">Passer en mode parent</button><div id="parentModeActive">mode parent actif <a id="parentModeQuit" href="javascript:void(0)"><i>X</i></a></div></h1>
 
 
         {{#children}}
@@ -18,7 +21,7 @@
             <input type="button" value="Édition" class="btnEdit">
             <div class="formEdit">
                 <div class="errorDisplay">Problème de communication.</div>
-                <input type="text" class="inputTxtPoints" maxlength="3">
+                Points à ajouter <input type="text" class="inputTxtPoints" maxlength="3">
                 <input type="button" class="btnSave" value="Sauvegarder">
             </div>
         </div>
@@ -31,6 +34,11 @@
                 <li>Partie de badminton - 25 Points</li>
                 <li>Clip and climb - 25 Points</li>
             </ul>
+        </div>
+        
+        <div id="dialogParentMode" title="Mode parent">
+            Mot de passe : <input type="password" name="mdpParent" id="mdpParent">
+            <div id="modeParentMessage" class="errorDisplay"></div>
         </div>
 
     </body>

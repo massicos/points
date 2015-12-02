@@ -19,6 +19,9 @@
 
 .formEdit {
     text-align: center;
+    border: orange dotted;
+    border-radius: 5px;
+    padding: 5px 5px;
 }
 
 .btnSave {
@@ -39,4 +42,20 @@
     width: 20%;
     margin-bottom: 10px;
     background-color: #cccccc;
+}
+
+#parentModeActive {
+    background: gray;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+/*    position: absolute;
+    top: 15px;
+    left: 350px;*/
+    display: inline;
+    padding: 3px;
+    border-radius: 3px;
+    background-color: #ff7f00;
+    border: solid 1px black;
+    font-variant: small-caps;
 }

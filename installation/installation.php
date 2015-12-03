@@ -33,6 +33,7 @@ shell_exec("rm -f " . CHEMIN_DESTINATION . "/config.*.php");
 //$gitLog = trim(preg_replace('/\s\s+/', ' ', $gitLog));
 //shell_exec('sed -i "s/GITLOG/' . $gitLog . '/" ' . CHEMIN_DESTINATION . "/config.php");
 
+<<<<<<< HEAD
 if ($niveau == "prod" || $niveau == "preprod") {
     echo "Conversion des fichiers\n";
     shell_exec("chown -R " . USAGER_APACHE . ":" . USAGER_APACHE . " " . CHEMIN_DESTINATION);
@@ -41,5 +42,7 @@ if ($niveau == "prod" || $niveau == "preprod") {
     shell_exec("chmod -R 755 " . CHEMIN_DESTINATION_PHP);
 }
 
+=======
+>>>>>>> cb066fb76c600b85a47b9a982337c066ef2c7094
 echo "-----------------------\n";
 echo "Fin de l'installation\n";
